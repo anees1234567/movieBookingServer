@@ -14,9 +14,12 @@ app.use(cors)
 app.get('/', (req, res) => {
     res.send('Welcome to the Movie Booking App API!');
 });
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+// Use PORT from the environment or default to 10000 if not specified
+const PORT = process.env.PORT || 10000;
+
+// Bind the server to 0.0.0.0 so it's accessible externally
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running on port ${PORT}`);
 });
 
 
