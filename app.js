@@ -4,11 +4,13 @@ const { bookSeat } = require('./controller');
 const { insertMovies, getAllMovies } = require('./addMovieController');
 const app = express();
 require('dotenv').config();
+const cors = require('cors');
+
 
 
 connectDB()
 app.use(express.json());
-
+app.use(cors)
 app.get('/', (req, res) => {
     res.send('Welcome to the Movie Booking App API!');
 });
